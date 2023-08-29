@@ -6,17 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
-  counter = 0;
+  counter = 10;
   activeDecrease = false;
 
   increase() {
-    // this.counter = this.counter + 1;
     this.counter++;
+    this.activeDecrease = true; 
   }
 
   decrease() {
-    // this.counter = this.counter - 1;
-    this.counter--;
+    if (this.counter > 0) {
+      this.counter--;
+    }
+    if (this.counter === 0) {
+      this.activeDecrease = false; 
+    }
   }
 
   inactiveDecrease() {
